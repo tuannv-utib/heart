@@ -1,0 +1,1779 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<HTML>
+
+<HEAD>
+
+    <TITLE> New Document </TITLE>
+
+    <META NAME="Generator" CONTENT="EditPlus">
+
+    <META NAME="Author" CONTENT="">
+
+    <META NAME="Keywords" CONTENT="">
+
+    <META NAME="Description" CONTENT="">
+
+    <style>
+        html,
+        body {
+
+            height: 100%;
+
+            padding: 0;
+
+            margin: 0;
+
+            background: #000;
+
+        }
+
+        canvas {
+
+            position: absolute;
+            /* position: inherit; */
+
+            width: 100%;
+
+            height: 100%;
+
+        }
+
+
+
+        #pinkboard_main {
+            margin: auto;
+            height: 750px;
+            width: 750px;
+            animation: animate 1.2s infinite;
+        }
+
+        #pinkboard_main_1 {
+            margin: auto;
+            height: 750px;
+            width: 750px;
+            animation: animate 1.2s infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: scale(.8);
+            }
+
+            30% {
+                transform: scale(.6);
+            }
+
+            60% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0.8);
+            }
+        }
+    </style>
+
+</HEAD>
+
+
+<BODY>
+    <div style="width: 100%; height: 100%;" class="w-100 h-100 d-flex flex-center">
+        <div class="d-flex flex-center" id="pinkboard_main">
+            <canvas style="background-color: transparent !important;" id="pinkboard"></canvas>
+            <canvas style="background-color: transparent !important;" id="pinkboard01"></canvas>
+            <canvas style="background-color: transparent !important;" id="pinkboard02"></canvas>
+            <canvas style="background-color: transparent !important;" id="pinkboard03"></canvas>
+            <canvas style="background-color: transparent !important;" id="pinkboard1"></canvas>
+            <canvas style="background-color: transparent !important;" id="pinkboard2"></canvas>
+            <canvas style="background-color: transparent !important;" id="pinkboard3"></canvas>
+            <canvas style="background-color: transparent !important;" id="pinkboard4"></canvas>
+            <canvas style="background-color: transparent !important;" id="pinkboard5"></canvas>
+            <canvas style="background-color: transparent !important;" id="pinkboard6"></canvas>
+        </div>
+        <div
+            style="color: white; position: absolute;width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center; ">
+            <img id="pinkboard_main_1" style="width: 150px; height: 150px; border-radius: 100px; opacity: 0.6;"
+                src="https://scontent.fhan5-9.fna.fbcdn.net/v/t39.30808-1/312658560_780940849645630_818686208567263203_n.jpg?stp=dst-jpg_s320x320&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=E-kbJuvOmuoAX-LAC0y&tn=QM0HTvL9FvHiO649&_nc_ht=scontent.fhan5-9.fna&oh=00_AfDckQfLL0RNDgow-MuovjUGquPQkPfVsgMemDylKl_GGA&oe=636F0718" />
+        </div>
+    </div>div>
+
+    <script>
+
+        /*
+      
+       * Settings
+      
+       */
+
+        var settings = {
+
+            particles: {
+
+                length: 500, // maximum amount of particles
+
+                duration: 4, // particle duration in sec
+
+                velocity: 160, // particle velocity in pixels/sec
+
+                effect: -0.75, // play with this for a nice effect
+
+                size: 15, // particle size in pixels
+
+            },
+
+            particles11: {
+
+                length: 450, // maximum amount of particles
+
+                duration: 4, // particle duration in sec
+
+                velocity: 160, // particle velocity in pixels/sec
+
+                effect: -0.75, // play with this for a nice effect
+
+                size: 15, // particle size in pixels
+
+            },
+
+            particles12: {
+
+                length: 400, // maximum amount of particles
+
+                duration: 4, // particle duration in sec
+
+                velocity: 160, // particle velocity in pixels/sec
+
+                effect: -0.75, // play with this for a nice effect
+
+                size: 15, // particle size in pixels
+
+            },
+
+            particles13: {
+
+                length: 350, // maximum amount of particles
+
+                duration: 4, // particle duration in sec
+
+                velocity: 160, // particle velocity in pixels/sec
+
+                effect: -0.75, // play with this for a nice effect
+
+                size: 15, // particle size in pixels
+
+            },
+
+            particles1: {
+
+                length: 300, // maximum amount of particles
+
+                duration: 2.5, // particle duration in sec
+
+                velocity: 90, // particle velocity in pixels/sec
+
+                effect: -0.75, // play with this for a nice effect
+
+                size: 35, // particle size in pixels
+
+            },
+
+            particles2: {
+
+                length: 270, // maximum amount of particles
+
+                duration: 10, // particle duration in sec
+
+                velocity: 60, // particle velocity in pixels/sec
+
+                effect: -0.75, // play with this for a nice effect
+
+                size: 25, // particle size in pixels
+
+            },
+
+            particles3: {
+
+                length: 240, // maximum amount of particles
+
+                duration: 15, // particle duration in sec
+
+                velocity: 48, // particle velocity in pixels/sec
+
+                effect: -0.75, // play with this for a nice effect
+
+                size: 20, // particle size in pixels
+
+            },
+
+            particles4: {
+
+                length: 210, // maximum amount of particles
+
+                duration: 20, // particle duration in sec
+
+                velocity: 28, // particle velocity in pixels/sec
+
+                effect: -0.75, // play with this for a nice effect
+
+                size: 18, // particle size in pixels
+
+            },
+
+            particles5: {
+
+                length: 280, // maximum amount of particles
+
+                duration: 25, // particle duration in sec
+
+                velocity: 18, // particle velocity in pixels/sec
+
+                effect: -0.75, // play with this for a nice effect
+
+                size: 16, // particle size in pixels
+
+            },
+
+            particles6: {
+
+                length: 150, // maximum amount of particles
+
+                duration: 30, // particle duration in sec
+
+                velocity: 8, // particle velocity in pixels/sec
+
+                effect: -0.75, // play with this for a nice effect
+
+                size: 14, // particle size in pixels
+
+            },
+
+        };
+
+
+        /*
+        
+         * RequestAnimationFrame polyfill by Erik Möller
+        
+         */
+
+        (function () { var b = 0; var c = ["ms", "moz", "webkit", "o"]; for (var a = 0; a < c.length && !window.requestAnimationFrame; ++a) { window.requestAnimationFrame = window[c[a] + "RequestAnimationFrame"]; window.cancelAnimationFrame = window[c[a] + "CancelAnimationFrame"] || window[c[a] + "CancelRequestAnimationFrame"] } if (!window.requestAnimationFrame) { window.requestAnimationFrame = function (h, e) { var d = new Date().getTime(); var f = Math.max(0, 16 - (d - b)); var g = window.setTimeout(function () { h(d + f) }, f); b = d + f; return g } } if (!window.cancelAnimationFrame) { window.cancelAnimationFrame = function (d) { clearTimeout(d) } } }());
+
+
+        /*
+        
+         * Point class
+        
+         */
+
+        var Point = (function () {
+
+            function Point(x, y) {
+
+                this.x = (typeof x !== 'undefined') ? x : 0;
+
+                this.y = (typeof y !== 'undefined') ? y : 0;
+
+            }
+
+            Point.prototype.clone = function () {
+
+                return new Point(this.x, this.y);
+
+            };
+
+            Point.prototype.length = function (length) {
+
+                if (typeof length == 'undefined')
+
+                    return Math.sqrt(this.x * this.x + this.y * this.y);
+
+                this.normalize();
+
+                this.x *= length;
+
+                this.y *= length;
+
+                return this;
+
+            };
+
+            Point.prototype.normalize = function () {
+
+                var length = this.length();
+
+                this.x /= length;
+
+                this.y /= length;
+
+                return this;
+
+            };
+
+            return Point;
+
+        })();
+
+
+        /*
+        
+         * Particle class
+        
+         */
+
+        var Particle = (function () {
+
+            function Particle() {
+
+                this.position = new Point();
+
+                this.velocity = new Point();
+
+                this.acceleration = new Point();
+
+                this.age = 0;
+
+            }
+
+            Particle.prototype.initialize = function (x, y, dx, dy) {
+
+                this.position.x = x;
+
+                this.position.y = y;
+
+                this.velocity.x = dx;
+
+                this.velocity.y = dy;
+
+                this.acceleration.x = dx * settings.particles.effect;
+
+                this.acceleration.y = dy * settings.particles.effect;
+
+                this.age = 0;
+
+            };
+
+            Particle.prototype.update = function (deltaTime) {
+
+                this.position.x += this.velocity.x * deltaTime;
+
+                this.position.y += this.velocity.y * deltaTime;
+
+                this.velocity.x += this.acceleration.x * deltaTime;
+
+                this.velocity.y += this.acceleration.y * deltaTime;
+
+                this.age += deltaTime;
+
+            };
+
+            Particle.prototype.draw = function (context, image) {
+
+                function ease(t) {
+
+                    return (--t) * t * t + 1;
+
+                }
+
+                var size = image.width * ease(this.age / settings.particles.duration);
+
+                context.globalAlpha = 1 - this.age / settings.particles.duration;
+
+                context.drawImage(image, this.position.x - size / 2, this.position.y - size / 2, size, size);
+
+            };
+
+            return Particle;
+
+        })();
+
+
+        /*
+        
+         * ParticlePool class
+        
+         */
+
+        var ParticlePool = (function () {
+
+            var particles1,
+
+                firstActive = 0,
+
+                firstFree = 0,
+
+                duration = settings.particles.duration;
+
+
+
+            function ParticlePool(length) {
+
+                // create and populate particle pool
+
+                particles1 = new Array(length);
+
+                for (var i = 0; i < particles1.length; i++)
+
+                    particles1[i] = new Particle();
+
+            }
+
+            ParticlePool.prototype.add = function (x, y, dx, dy) {
+
+                particles1[firstFree].initialize(x, y, dx, dy);
+
+
+
+                // handle circular queue
+
+                firstFree++;
+
+                if (firstFree == particles1.length) firstFree = 0;
+
+                if (firstActive == firstFree) firstActive++;
+
+                if (firstActive == particles1.length) firstActive = 0;
+
+            };
+
+            ParticlePool.prototype.update = function (deltaTime) {
+
+                var i;
+
+
+
+                // update active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].update(deltaTime);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+
+
+                // remove inactive particles
+
+                while (particles1[firstActive].age >= duration && firstActive != firstFree) {
+
+                    firstActive++;
+
+                    if (firstActive == particles1.length) firstActive = 0;
+
+                }
+
+
+
+
+
+            };
+
+            ParticlePool.prototype.draw = function (context, image) {
+
+                // draw active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].draw(context, image);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+            };
+
+            return ParticlePool;
+
+        })();
+
+        var ParticlePool1 = (function () {
+
+            var particles1,
+
+                firstActive = 0,
+
+                firstFree = 0,
+
+                duration = settings.particles.duration;
+
+
+
+            function ParticlePool1(length) {
+
+                // create and populate particle pool
+
+                particles1 = new Array(length);
+
+                for (var i = 0; i < particles1.length; i++)
+
+                    particles1[i] = new Particle();
+
+            }
+
+            ParticlePool1.prototype.add = function (x, y, dx, dy) {
+
+                particles1[firstFree].initialize(x, y, dx, dy);
+
+
+
+                // handle circular queue
+
+                firstFree++;
+
+                if (firstFree == particles1.length) firstFree = 0;
+
+                if (firstActive == firstFree) firstActive++;
+
+                if (firstActive == particles1.length) firstActive = 0;
+
+            };
+
+            ParticlePool1.prototype.update = function (deltaTime) {
+
+                var i;
+
+
+
+                // update active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].update(deltaTime);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+
+
+                // remove inactive particles
+
+                while (particles1[firstActive].age >= duration && firstActive != firstFree) {
+
+                    firstActive++;
+
+                    if (firstActive == particles1.length) firstActive = 0;
+
+                }
+
+
+
+
+
+            };
+
+            ParticlePool1.prototype.draw = function (context, image) {
+
+                // draw active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].draw(context, image);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+            };
+
+            return ParticlePool1;
+
+        })();
+
+        var ParticlePool11 = (function () {
+
+            var particles1,
+
+                firstActive = 0,
+
+                firstFree = 0,
+
+                duration = settings.particles.duration;
+
+
+
+            function ParticlePool11(length) {
+
+                // create and populate particle pool
+
+                particles1 = new Array(length);
+
+                for (var i = 0; i < particles1.length; i++)
+
+                    particles1[i] = new Particle();
+
+            }
+
+            ParticlePool11.prototype.add = function (x, y, dx, dy) {
+
+                particles1[firstFree].initialize(x, y, dx, dy);
+
+
+
+                // handle circular queue
+
+                firstFree++;
+
+                if (firstFree == particles1.length) firstFree = 0;
+
+                if (firstActive == firstFree) firstActive++;
+
+                if (firstActive == particles1.length) firstActive = 0;
+
+            };
+
+            ParticlePool11.prototype.update = function (deltaTime) {
+
+                var i;
+
+
+
+                // update active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].update(deltaTime);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+
+
+                // remove inactive particles
+
+                while (particles1[firstActive].age >= duration && firstActive != firstFree) {
+
+                    firstActive++;
+
+                    if (firstActive == particles1.length) firstActive = 0;
+
+                }
+
+
+
+
+
+            };
+
+            ParticlePool11.prototype.draw = function (context, image) {
+
+                // draw active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].draw(context, image);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+            };
+
+            return ParticlePool11;
+
+        })();
+
+        var ParticlePool12 = (function () {
+
+            var particles1,
+
+                firstActive = 0,
+
+                firstFree = 0,
+
+                duration = settings.particles.duration;
+
+
+
+            function ParticlePool12(length) {
+
+                // create and populate particle pool
+
+                particles1 = new Array(length);
+
+                for (var i = 0; i < particles1.length; i++)
+
+                    particles1[i] = new Particle();
+
+            }
+
+            ParticlePool12.prototype.add = function (x, y, dx, dy) {
+
+                particles1[firstFree].initialize(x, y, dx, dy);
+
+
+
+                // handle circular queue
+
+                firstFree++;
+
+                if (firstFree == particles1.length) firstFree = 0;
+
+                if (firstActive == firstFree) firstActive++;
+
+                if (firstActive == particles1.length) firstActive = 0;
+
+            };
+
+            ParticlePool12.prototype.update = function (deltaTime) {
+
+                var i;
+
+
+
+                // update active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].update(deltaTime);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+
+
+                // remove inactive particles
+
+                while (particles1[firstActive].age >= duration && firstActive != firstFree) {
+
+                    firstActive++;
+
+                    if (firstActive == particles1.length) firstActive = 0;
+
+                }
+
+
+
+
+
+            };
+
+            ParticlePool12.prototype.draw = function (context, image) {
+
+                // draw active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].draw(context, image);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+            };
+
+            return ParticlePool12;
+
+        })();
+
+        var ParticlePool13 = (function () {
+
+            var particles1,
+
+                firstActive = 0,
+
+                firstFree = 0,
+
+                duration = settings.particles.duration;
+
+
+
+            function ParticlePool13(length) {
+
+                // create and populate particle pool
+
+                particles1 = new Array(length);
+
+                for (var i = 0; i < particles1.length; i++)
+
+                    particles1[i] = new Particle();
+
+            }
+
+            ParticlePool13.prototype.add = function (x, y, dx, dy) {
+
+                particles1[firstFree].initialize(x, y, dx, dy);
+
+
+
+                // handle circular queue
+
+                firstFree++;
+
+                if (firstFree == particles1.length) firstFree = 0;
+
+                if (firstActive == firstFree) firstActive++;
+
+                if (firstActive == particles1.length) firstActive = 0;
+
+            };
+
+            ParticlePool13.prototype.update = function (deltaTime) {
+
+                var i;
+
+
+
+                // update active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].update(deltaTime);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+
+
+                // remove inactive particles
+
+                while (particles1[firstActive].age >= duration && firstActive != firstFree) {
+
+                    firstActive++;
+
+                    if (firstActive == particles1.length) firstActive = 0;
+
+                }
+
+
+
+
+
+            };
+
+            ParticlePool13.prototype.draw = function (context, image) {
+
+                // draw active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].draw(context, image);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+            };
+
+            return ParticlePool13;
+
+        })();
+
+        var ParticlePool2 = (function () {
+
+            var particles1,
+
+                firstActive = 0,
+
+                firstFree = 0,
+
+                duration = settings.particles.duration;
+
+
+
+            function ParticlePool2(length) {
+
+                // create and populate particle pool
+
+                particles1 = new Array(length);
+
+                for (var i = 0; i < particles1.length; i++)
+
+                    particles1[i] = new Particle();
+
+            }
+
+            ParticlePool2.prototype.add = function (x, y, dx, dy) {
+
+                particles1[firstFree].initialize(x, y, dx, dy);
+
+
+
+                // handle circular queue
+
+                firstFree++;
+
+                if (firstFree == particles1.length) firstFree = 0;
+
+                if (firstActive == firstFree) firstActive++;
+
+                if (firstActive == particles1.length) firstActive = 0;
+
+            };
+
+            ParticlePool2.prototype.update = function (deltaTime) {
+
+                var i;
+
+
+
+                // update active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].update(deltaTime);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+
+
+                // remove inactive particles
+
+                while (particles1[firstActive].age >= duration && firstActive != firstFree) {
+
+                    firstActive++;
+
+                    if (firstActive == particles1.length) firstActive = 0;
+
+                }
+
+
+
+
+
+            };
+
+            ParticlePool2.prototype.draw = function (context, image) {
+
+                // draw active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].draw(context, image);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+            };
+
+            return ParticlePool2;
+
+        })();
+
+        var ParticlePool3 = (function () {
+
+            var particles1,
+
+                firstActive = 0,
+
+                firstFree = 0,
+
+                duration = settings.particles.duration;
+
+
+
+            function ParticlePool3(length) {
+
+                // create and populate particle pool
+
+                particles1 = new Array(length);
+
+                for (var i = 0; i < particles1.length; i++)
+
+                    particles1[i] = new Particle();
+
+            }
+
+            ParticlePool3.prototype.add = function (x, y, dx, dy) {
+
+                particles1[firstFree].initialize(x, y, dx, dy);
+
+
+
+                // handle circular queue
+
+                firstFree++;
+
+                if (firstFree == particles1.length) firstFree = 0;
+
+                if (firstActive == firstFree) firstActive++;
+
+                if (firstActive == particles1.length) firstActive = 0;
+
+            };
+
+            ParticlePool3.prototype.update = function (deltaTime) {
+
+                var i;
+
+
+
+                // update active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].update(deltaTime);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+
+
+                // remove inactive particles
+
+                while (particles1[firstActive].age >= duration && firstActive != firstFree) {
+
+                    firstActive++;
+
+                    if (firstActive == particles1.length) firstActive = 0;
+
+                }
+
+
+
+
+
+            };
+
+            ParticlePool3.prototype.draw = function (context, image) {
+
+                // draw active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].draw(context, image);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+            };
+
+            return ParticlePool3;
+
+        })();
+
+        var ParticlePool4 = (function () {
+
+            var particles1,
+
+                firstActive = 0,
+
+                firstFree = 0,
+
+                duration = settings.particles.duration;
+
+
+
+            function ParticlePool4(length) {
+
+                // create and populate particle pool
+
+                particles1 = new Array(length);
+
+                for (var i = 0; i < particles1.length; i++)
+
+                    particles1[i] = new Particle();
+
+            }
+
+            ParticlePool4.prototype.add = function (x, y, dx, dy) {
+
+                particles1[firstFree].initialize(x, y, dx, dy);
+
+
+
+                // handle circular queue
+
+                firstFree++;
+
+                if (firstFree == particles1.length) firstFree = 0;
+
+                if (firstActive == firstFree) firstActive++;
+
+                if (firstActive == particles1.length) firstActive = 0;
+
+            };
+
+            ParticlePool4.prototype.update = function (deltaTime) {
+
+                var i;
+
+
+
+                // update active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].update(deltaTime);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+
+
+                // remove inactive particles
+
+                while (particles1[firstActive].age >= duration && firstActive != firstFree) {
+
+                    firstActive++;
+
+                    if (firstActive == particles1.length) firstActive = 0;
+
+                }
+
+
+
+
+
+            };
+
+            ParticlePool4.prototype.draw = function (context, image) {
+
+                // draw active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].draw(context, image);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+            };
+
+            return ParticlePool4;
+
+        })();
+
+        var ParticlePool5 = (function () {
+
+            var particles1,
+
+                firstActive = 0,
+
+                firstFree = 0,
+
+                duration = settings.particles.duration;
+
+
+
+            function ParticlePool5(length) {
+
+                // create and populate particle pool
+
+                particles1 = new Array(length);
+
+                for (var i = 0; i < particles1.length; i++)
+
+                    particles1[i] = new Particle();
+
+            }
+
+            ParticlePool5.prototype.add = function (x, y, dx, dy) {
+
+                particles1[firstFree].initialize(x, y, dx, dy);
+
+
+
+                // handle circular queue
+
+                firstFree++;
+
+                if (firstFree == particles1.length) firstFree = 0;
+
+                if (firstActive == firstFree) firstActive++;
+
+                if (firstActive == particles1.length) firstActive = 0;
+
+            };
+
+            ParticlePool5.prototype.update = function (deltaTime) {
+
+                var i;
+
+
+
+                // update active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].update(deltaTime);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+
+
+                // remove inactive particles
+
+                while (particles1[firstActive].age >= duration && firstActive != firstFree) {
+
+                    firstActive++;
+
+                    if (firstActive == particles1.length) firstActive = 0;
+
+                }
+
+
+
+
+
+            };
+
+            ParticlePool5.prototype.draw = function (context, image) {
+
+                // draw active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].draw(context, image);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+            };
+
+            return ParticlePool5;
+
+        })();
+
+        var ParticlePool6 = (function () {
+
+            var particles1,
+
+                firstActive = 0,
+
+                firstFree = 0,
+
+                duration = settings.particles.duration;
+
+
+
+            function ParticlePool6(length) {
+
+                // create and populate particle pool
+
+                particles1 = new Array(length);
+
+                for (var i = 0; i < particles1.length; i++)
+
+                    particles1[i] = new Particle();
+
+            }
+
+            ParticlePool6.prototype.add = function (x, y, dx, dy) {
+
+                particles1[firstFree].initialize(x, y, dx, dy);
+
+
+
+                // handle circular queue
+
+                firstFree++;
+
+                if (firstFree == particles1.length) firstFree = 0;
+
+                if (firstActive == firstFree) firstActive++;
+
+                if (firstActive == particles1.length) firstActive = 0;
+
+            };
+
+            ParticlePool6.prototype.update = function (deltaTime) {
+
+                var i;
+
+
+
+                // update active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].update(deltaTime);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].update(deltaTime);
+
+                }
+
+
+
+                // remove inactive particles
+
+                while (particles1[firstActive].age >= duration && firstActive != firstFree) {
+
+                    firstActive++;
+
+                    if (firstActive == particles1.length) firstActive = 0;
+
+                }
+
+
+
+
+
+            };
+
+            ParticlePool6.prototype.draw = function (context, image) {
+
+                // draw active particles
+
+                if (firstActive < firstFree) {
+
+                    for (i = firstActive; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+                if (firstFree < firstActive) {
+
+                    for (i = firstActive; i < particles1.length; i++)
+
+                        particles1[i].draw(context, image);
+
+                    for (i = 0; i < firstFree; i++)
+
+                        particles1[i].draw(context, image);
+
+                }
+
+            };
+
+            return ParticlePool6;
+
+        })();
+
+        function heart(canvas, particles, color, settingHanle, size) {
+
+            var context1 = canvas.getContext('2d'),
+
+                particleRate = settingHanle.length / settingHanle.duration, // particles/sec
+
+                time;
+
+
+
+            // get point on heart with -PI <= t <= PI
+
+            function pointOnHeart(t) {
+
+                return new Point(
+
+                    160 * Math.pow(Math.sin(t), 3),
+
+                    130 * Math.cos(t) - 47 * Math.cos(2 * t) - 25 * Math.cos(3 * t) - 5 * Math.cos(4 * t) + 20
+
+                );
+
+            }
+
+
+
+            // creating the particle image using a dummy canvas
+
+            var image = (function () {
+
+                var canvas = document.createElement('canvas'),
+
+                    context = canvas.getContext('2d');
+
+                canvas.width = settingHanle.size;
+
+                canvas.height = settingHanle.size;
+
+                // helper function to create the path
+
+                function to(t) {
+
+                    var point = pointOnHeart(t);
+
+                    point.x = settingHanle.size / 2 + point.x * settingHanle.size / size;
+
+                    point.y = settingHanle.size / 2 - point.y * settingHanle.size / size;
+
+                    return point;
+
+                }
+
+                // create the path
+
+                context.beginPath();
+
+                var t = -Math.PI * 2;
+
+                var point = to(t);
+
+                context.moveTo(point.x, point.y);
+
+                while (t < Math.PI * 2) {
+
+                    t += 0.01; // baby steps!
+
+                    point = to(t);
+
+                    context.lineTo(point.x, point.y);
+                    console.log(point.x + "-" + point.y);
+
+                }
+
+                context.closePath();
+
+                // create the fill
+
+                context.fillStyle = color; //'#ea80b0';
+
+                context.fill();
+
+                // create the image
+
+                var image = new Image();
+
+                image.src = canvas.toDataURL();
+
+                return image;
+
+            })();
+
+            // render that thing!
+
+            function render() {
+
+                // next animation frame
+
+                requestAnimationFrame(render);
+
+
+
+                // update time
+
+                var newTime = new Date().getTime() / 1000,
+
+                    deltaTime = newTime - (time || newTime);
+
+                time = newTime;
+
+
+
+                // clear canvas
+
+                context1.clearRect(0, 0, canvas.width, canvas.height);
+
+
+
+                // create new particles
+
+                var amount = particleRate * deltaTime;
+
+                for (var i = 0; i < amount; i++) {
+
+                    var pos = pointOnHeart(Math.PI - 2 * Math.PI * Math.random());
+
+                    var dir = pos.clone().length(settingHanle.velocity);
+                    particles.add(canvas.width / 2 + (1.2 * pos.x), canvas.height / 2 - (1.2 * pos.y), dir.x, -dir.y);
+
+                    //particles.add(canvas.width / 2 + pos.x, canvas.height / 2 - pos.y, dir.x, -dir.y);
+
+                }
+
+
+
+                // update and draw particles
+
+                particles.update(deltaTime);
+
+                particles.draw(context1, image);
+
+                //particles2.draw(context, image1);
+
+            }
+
+
+
+            // handle (re-)sizing of the canvas
+
+            function onResize() {
+
+                canvas.width = canvas.clientWidth * 1.15;
+                canvas.height = canvas.clientHeight * 1.15;
+                console.log(canvas.clientWidth, "canvas.clientWidth");
+                console.log(canvas.clientHeight, "canvas.clientHeight");
+                setInterval(() => {
+                    //canvas.width  = canvas.width === canvas.clientWidth ? (canvas.clientWidth * 1.01) : canvas.clientWidth;
+                    //canvas.height = canvas.height === canvas.clientHeight ? (canvas.clientHeight * 1.01) : canvas.clientHeight;
+                    //render();
+                }, 1000);
+            }
+
+            window.onresize = onResize;
+
+
+
+            // delay rendering bootstrap
+
+            setTimeout(function () {
+
+                onResize();
+
+                render();
+
+            }, 10);
+
+        };
+
+
+        heart(document.getElementById('pinkboard'), new ParticlePool1(settings.particles1.length), 'rgb(233 78 78)', settings.particles, 350);
+        heart(document.getElementById('pinkboard01'), new ParticlePool11(settings.particles1.length), 'rgb(233 78 78)', settings.particles11, 350);
+        heart(document.getElementById('pinkboard02'), new ParticlePool12(settings.particles1.length), 'rgb(233 78 78)', settings.particles12, 350);
+        heart(document.getElementById('pinkboard03'), new ParticlePool13(settings.particles1.length), 'rgb(233 78 78)', settings.particles13, 350);
+        heart(document.getElementById('pinkboard1'), new ParticlePool(settings.particles.length), 'rgb(254 46 46 / 100%)', settings.particles1, 350);
+        heart(document.getElementById('pinkboard2'), new ParticlePool2(settings.particles2.length), 'rgb(254 46 46 / 80%)', settings.particles2, 350);
+        heart(document.getElementById('pinkboard3'), new ParticlePool3(settings.particles3.length), 'rgb(254 46 46 / 70%)', settings.particles3, 350);
+        heart(document.getElementById('pinkboard4'), new ParticlePool4(settings.particles4.length), 'rgb(254 46 46 / 55%)', settings.particles4, 350);
+        heart(document.getElementById('pinkboard5'), new ParticlePool5(settings.particles5.length), 'rgb(254 46 46 / 40%)', settings.particles5, 350);
+        heart(document.getElementById('pinkboard6'), new ParticlePool6(settings.particles6.length), 'rgb(254 46 46 / 30%)', settings.particles6, 350);
+    </script>
+
+</BODY>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</HTML>
